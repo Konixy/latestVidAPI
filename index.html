@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Redirecting...</title>
+</head>
+<script type="text/javascript">
+	const channelId = "UCFanwdATVtjTXBdX5KU-H5Q"; // UCgvqvBoSHB1ctlyyhoHrGwQ
+	let requestURL = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyA1y10d8v2J9WvFMxzW3m9DbNP8LRhnX4c&channelId=' + channelId + '&part=snippet,id&order=date&maxResults=1';
+	let request = new XMLHttpRequest();
+
+	request.open('GET', requestURL);
+	request.responseType = 'json';
+	request.send();
+
+	request.onload = function() {
+  		const yt = request.response;
+  		document.querySelector('.link').innerHTML = '<a href="https://www.youtube.com/watch?v=' + yt["items"][0]["id"]["videoId"] + '">Redirecting here...</a>';
+  		window.location.href = 'https://www.youtube.com/watch?v=' + yt["items"][0]["id"]["videoId"]
+	}
+
+</script>
+<body>
+	<span class="link"></span>
+</body>
+</html>
