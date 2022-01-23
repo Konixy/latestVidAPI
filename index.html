@@ -15,6 +15,7 @@
 
 	request.onload = function() {
   		const yt = request.response;
+		if(!yt["items"][0]["id"]["videoId"]) return alert('aucune vidéo trouvée !');
   		document.querySelector('.link').innerHTML = '<a href="https://www.youtube.com/watch?v=' + yt["items"][0]["id"]["videoId"] + '">Redirecting here...</a>';
   		window.location.href = 'https://www.youtube.com/watch?v=' + yt["items"][0]["id"]["videoId"]
 	}
